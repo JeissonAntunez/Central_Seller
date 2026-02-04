@@ -1,12 +1,21 @@
     
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+
+
+
+        
         * {
           margin: 0;
           padding: 0;
           box-sizing: border-box;
         }
   
+
+        :root{
+          --prymary-color: #0d88cf;
+          --secondary-color: #109dd4;
+        }
         h2:hover, p:hover {
             color: #252728;
             transition: all 1.34s ease;
@@ -87,7 +96,7 @@
   height: 35vh;
   /* background: rgba(255, 255, 255, 0.15); */
   backdrop-filter: blur(10px);
-  border-radius: 16px;
+  border-radius: 50%; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,9 +106,7 @@
 }
 
 
-.logo-icon:hover {
-  color: #252728;
-}
+
 
 @keyframes float3D {
   0%, 100% {
@@ -120,7 +127,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+
 }
         .logo-icon svg {
           width: 32px;

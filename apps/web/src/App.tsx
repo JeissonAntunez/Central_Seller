@@ -1,35 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route, Navigate } from 'react-router-dom';
+import LoginPage from './pages/auth/LoginPage';
+import RegisterPage1 from './pages/auth/RegisterPage1';
+import Admin from './pages/admin/Dashboard';
+import Dashboard from './pages/admin/Dashboard';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Routes>
+      {/* Ruta raíz redirige al login */}
+      <Route path="/" element={<Navigate to="/login" replace />} />
+      
+      {/* Rutas de autenticación (SIN navbar) */}
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage1 />} />
+      <Route path="/forgot-password" element={<div>Página de recuperación de contraseña</div>} />
+      
+      {/* Rutas de admin (CON AdminLayout que incluye el navbar fijo) */}
+      <Route path="/admin" element={<Admin />}>
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="productos" element={<div>Página de Productos</div>} />
+        <Route path="ordenes" element={<div>Página de Órdenes</div>} />
+        <Route path="pagos" element={<div>Página de Pagos</div>} />
+        <Route path="informes" element={<div>Página de Informes</div>} />
+        
+        {/* Redirige /admin a /admin/dashboard */}
+        <Route index element={<Navigate to="dashboard" replace />} />
+      </Route>
+      
+      {/* Ruta 404 - cualquier ruta no definida */}
+      <Route path="*" element={<Navigate to="/login" replace />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;

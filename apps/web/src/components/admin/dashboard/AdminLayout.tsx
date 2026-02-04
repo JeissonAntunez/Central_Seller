@@ -11,7 +11,7 @@ import {
   Legend, 
   ResponsiveContainer 
 } from 'recharts';
-import "../../../styles/AdminLayout.css";  // ✅ CORRECTO
+import '../../styles/Dashboard.css';
 
 // Datos de ejemplo para el gráfico de rendimiento
 const performanceData = [
@@ -26,8 +26,6 @@ const performanceData = [
 
 const Dashboard: React.FC = () => {
   return (
-
-
     <div className="dashboard-container">
       {/* Cards de métricas */}
       <div className="metrics-grid">
