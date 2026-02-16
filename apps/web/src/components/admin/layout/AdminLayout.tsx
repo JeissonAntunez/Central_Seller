@@ -238,6 +238,10 @@ const Dashboard: React.FC = () => {
               </svg>
             </div>
             <h4>Arrastra archivos para subir</h4>
+            <h3>Arrastra archivosd</h3>
+            <h5>Lom estamos haciendo de pymt</h5>
+            <h6>fdawefafawfafawfwef</h6>
+            fgkafafawfawfakafkfakffwaffjkfksdafjgsd
             <p>O busca en tu ordenador los archivos .xlsx o .csv</p>
             <button className="upload-button">Seleccionar Archivo</button>
             

@@ -1,0 +1,87 @@
+
+        .navbar {
+          position: sticky;
+          top: 0;
+          z-index: 100;
+          background: white;
+          border-bottom: 1px solid #e5e7eb;
+        }
+
+        .navbar-container {
+          display: flex;
+          align-items: center;
+          padding: 1rem 2rem;
+          gap: 2rem;
+        }
+
+        /* Brand */
+        .navbar-brand {
+          flex-shrink: 0;
+        }
+
+        .brand-link {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          text-decoration: none;
+        }
+
+        .brand-icon {
+          width: 36px;
+          height: 36px;
+          background: #a3e635;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+        }
+
+        .brand-icon svg {
+          width: 20px;
+          height: 20px;
+        }
+
+        .brand-text {
+          display: flex;
+          flex-direction: column;
+          line-height: 1.2;
+        }
+
+        .brand-name {
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: #a3e635;
+        }
+
+        .brand-subtitle {
+          font-size: 0.875rem;
+          font-weight: 500;
+          color: #6b7280;
+        }
+
+        /* Menu */
+        .navbar-menu {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+          .navbar-container {
+            padding: 1rem;
+          }
+
+          .brand-name {
+            font-size: 1rem;
+          }
+
+          .brand-subtitle {
+            font-size: 0.75rem;
+          }
+
+          .navbar-menu {
+            flex-wrap: wrap;
+          }
+        }

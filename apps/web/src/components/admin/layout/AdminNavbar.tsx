@@ -1,12 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logoCentralSeller from '../../../assets/img/logoseller.png';
+import  Navbar  from '../products/Navbar';
 import "../../../styles/Adminnavbar.css"
 interface AdminNavbarProps {
   storeName?: string;
   storeId?: string;
   userAvatar?: string;
 }
+
+
+
 
 const AdminNavbar: React.FC<AdminNavbarProps> = ({ 
   storeName = "Tienda Central", 
@@ -24,12 +28,24 @@ const AdminNavbar: React.FC<AdminNavbarProps> = ({
 
         {/* Menú de navegación */}
         <div className="navbar-menu">
-          <Link to="/admin/productos" className="navbar-item">
+          {/* <Link to="/admin/productos" className="navbar-item">
             Productos
             <svg className="dropdown-icon" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
-          </Link>
+          </Link> */}
+          
+<button onClick={() => cdtoggleDropdown('Productos')} className="navbar-item">
+  Productos
+</button>
+
+{/* Y luego el dropdown aparece cuando se hace clic */}
+{activeDropdown === 'Productos' && (
+  <div className="dropdown-menu">
+    <Link to="/admin/productos/admin">Administrador</Link>
+    <Link to="/admin/productos/carga">Carga individual</Link>
+  </div>
+)}
           
           <Link to="/admin/ordenes" className="navbar-item">
             Órdenes
