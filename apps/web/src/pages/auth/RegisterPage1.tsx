@@ -96,16 +96,42 @@ const RegisterPage1 = () => {
 
     setIsLoading(true);
 
+    // try {
+    //   // Simulación de registro
+    //   await new Promise(resolve => setTimeout(resolve, 2000));
+    //   console.log('Registro exitoso:', formData);
+    //   alert('¡Cuenta profesional creada exitosamente!');
+    // } catch (error) {
+    //   console.error('Error en el registro:', error);
+    // } finally {
+    //   setIsLoading(false);
+    // }
     try {
-      // Simulación de registro
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      console.log('Registro exitoso:', formData);
-      alert('¡Cuenta profesional creada exitosamente!');
-    } catch (error) {
-      console.error('Error en el registro:', error);
-    } finally {
-      setIsLoading(false);
-    }
+  const response = await fetch("http://localhost:3000/api/auth/register", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(formData)
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || "Error en el registro");
+  }
+
+  console.log("Registro exitoso:", data);
+  alert("Cuenta creada correctamente 🚀");
+
+} catch (error: any) {
+  console.error(error);
+  alert(error.message);
+}
+ finally {
+    setIsLoading(false) // 🔥 ESTO ES CLAVE
+  }
+
   };
 
   return (

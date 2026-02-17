@@ -1,14 +1,122 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ============================================
+// ENUMS
+// ============================================
+enum StoreStatus {
+  PENDING
+  ACTIVE
+  SUSPENDED
+  DELETED
+}
+
+enum ConsentType {
+  TERMS
+  PRIVACY
+  MARKETING
+}
+
+enum UserRole {
+  ADMIN
+  SELLER
+  CUSTOMER
+}
+
+// ============================================
+// MODELOS
+// ============================================
+
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  password      String
+  role          UserRole  @default(SELLER)
+  emailVerified Boolean   @default(false) @map("email_verified")
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  // Relaciones
+  profile       Profile?
+  store         Store?
+  consents      UserConsent[]
+  refreshTokens RefreshToken[]
+
+  @@map("users")
+}
+
+model Profile {
+  id          String   @id @default(uuid())
+  userId      String   @unique @map("user_id")
+  fullName    String   @map("full_name")
+  phoneNumber String?  @map("phone_number")
+  avatarUrl   String?  @map("avatar_url")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  // Relaciones
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("profiles")
+}
+
+model Store {
+  id          String      @id @default(uuid())
+  ownerId     String      @unique @map("owner_id")
+  storeName   String      @unique @map("store_name")
+  documentId  String      @unique @map("document_id")
+  slug        String      @unique
+  status      StoreStatus @default(PENDING)
+  logoUrl     String?     @map("logo_url")
+  description String?
+  createdAt   DateTime    @default(now()) @map("created_at")
+  updatedAt   DateTime    @updatedAt @map("updated_at")
+
+  // Relaciones
+  owner User @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+
+  @@index([ownerId])
+  @@index([slug])
+  @@index([documentId])
+  @@index([status])
+  @@map("stores")
+}
+
+model UserConsent {
+  id          String      @id @default(uuid())
+  userId      String      @map("user_id")
+  consentType ConsentType @map("consent_type")
+  acceptedAt  DateTime    @default(now()) @map("accepted_at")
+  ipAddress   String?     @map("ip_address")
+  userAgent   String?     @map("user_agent")
+  version     String      @default("1.0")
+
+  // Relaciones
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([consentType])
+  @@map("user_consents")
+}
+
+model RefreshToken {
+  id        String   @id @default(uuid())
+  userId    String   @map("user_id")
+  token     String   @unique
+  expiresAt DateTime @map("expires_at")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  // Relaciones
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([token])
+  @@map("refresh_tokens")
 }

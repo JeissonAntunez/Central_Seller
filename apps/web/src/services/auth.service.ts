@@ -174,6 +174,12 @@ class AuthService {
     }
     return error instanceof Error ? error : new Error('Unknown error occurred');
   }
+
+
+
+
 }
+
+
 
 export const authService = new AuthService();
