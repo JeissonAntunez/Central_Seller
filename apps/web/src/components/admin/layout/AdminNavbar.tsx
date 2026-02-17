@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logoCentralSeller from '../../../assets/img/logoseller.png';
 // import  Navbar  from '../products/Navbar';
-import "../../../styles/Adminnavbar.css"
+import "../../../styles/adminnavbar.css"
 interface AdminNavbarProps {
   storeName?: string;
   storeId?: string;
