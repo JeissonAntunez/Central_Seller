@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logoCentralSeller from '../../../assets/img/logoseller.png';
-import  Navbar  from '../products/Navbar';
+// import  Navbar  from '../products/Navbar';
 import "../../../styles/Adminnavbar.css"
 interface AdminNavbarProps {
   storeName?: string;
@@ -35,18 +35,18 @@ const AdminNavbar: React.FC<AdminNavbarProps> = ({
             </svg>
           </Link> */}
           
-<button onClick={() => cdtoggleDropdown('Productos')} className="navbar-item">
+{/* <button onClick={() => cdtoggleDropdown('Productos')} className="navbar-item">
   Productos
-</button>
+</button> */}
 
 {/* Y luego el dropdown aparece cuando se hace clic */}
-{activeDropdown === 'Productos' && (
+{/* {activeDropdown === 'Productos' && (
   <div className="dropdown-menu">
     <Link to="/admin/productos/admin">Administrador</Link>
     <Link to="/admin/productos/carga">Carga individual</Link>
   </div>
 )}
-          
+           */}
           <Link to="/admin/ordenes" className="navbar-item">
             Órdenes
             <svg className="dropdown-icon" viewBox="0 0 20 20" fill="currentColor">

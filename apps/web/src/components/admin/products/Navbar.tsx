@@ -1,7 +1,7 @@
-import React from 'react';
+// import React from 'react';
 import { Link } from 'react-router-dom';
 import NavbarDropdown from './NavbarDropdown';
-import { ShoppingCart, CreditCard } from 'lucide-react';
+// import { ShoppingCart, CreditCard } from 'lucide-react';
 import "../../../styles/Navbar.css"
 const Navbar = () => {
   // Opciones del dropdown de Productos
