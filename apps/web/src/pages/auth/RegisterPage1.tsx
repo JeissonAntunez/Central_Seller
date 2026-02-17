@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // import { useNavigate, Link } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import logoCentralSeller from '../../assets/img/logoseller.png';
-
+import '../../styles/RegisterPage.css';
 
 const RegisterPage1 = () => {
   // const [currentStep, setCurrentStep] = useState(1);
