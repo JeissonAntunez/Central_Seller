@@ -1,9 +1,10 @@
 /* Dashboard.css */
 
 .dashboard-container {
-  max-width: 1440px;
-  margin: 0 auto;
+  max-width: 1740px;
+  margin: 105px auto;
   padding: 24px;
+  
 }
 
 /* Metrics Grid */

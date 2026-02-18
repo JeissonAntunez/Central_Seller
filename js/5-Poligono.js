@@ -62,3 +62,107 @@ console.log(
  */
 
     
+
+    let coffes = ["Espresso", "Latte", "Cappuccino"];
+    let fis = ["Lion", ,"Tiger"];
+
+    fis.forEach(f => {
+        console.log(f);
+    });
+    coffes.forEach(coffe => {
+        console.log(coffe);
+    });
+
+    let datoMath = coffes.map(coffe => coffe.toUpperCase()).sort().join(", ");
+
+    console.log(datoMath);
+
+
+    console.log("Objetos literales");
+
+    function usuario(nombre, edad) {
+        return {
+            nombre: nombre,
+            edad: edad
+        };
+    }
+
+    console.log(usuario("Juan", 30));
+    console.log("----------------------------- \n");
+    console.log("----------------------------- \n");
+    console.log("----------------------------- \n");
+    console.log("----------------------------- \n");
+    
+    
+    const tipo = "usuario";
+    const nombre = "Alex";
+    
+    const persona ={
+        nombre,
+        [`${tipo}Id`]: 42,
+        saludar() {
+            console.log(`Hola, soy ${this.nombre} y mi ID es ${this.usuarioId}`);
+        }
+    }
+    
+    console.log(persona);
+    persona.saludar();
+    
+    
+    console.log("----------------------------- \n");
+    console.log("--   Ejercicio Shorthand ----- \n");
+    console.log("--   Objetos literales mejorados ----- \n");
+    console.log("----------------------------- \n");
+    
+    
+    const id = 543;
+    const stock = 10;
+    const categoria = "Electrónica";
+    
+    
+    const producto ={
+        id,
+        stock,
+        categoria,
+        miProducto(){
+            console.log(`Producto ID: ${this.id}, Stock: ${this.stock}, Categoria: ${this.categoria}`);
+        }
+    }
+    
+    producto.miProducto();
+    
+    
+    console.log("----------------------------- \n");
+    console.log("--   Expresiones regulares(<<RegExp>>) ----- \v");
+    console.log("----------------------------- \n");
+    
+    
+    // const texto = "El número de teléfono es 123-456-7890";
+    // const regex = /de/;
+    
+    // const resultado = texto.match(regex);
+    // console.log(regex.test(texto));
+    // console.log(texto.match(regex));
+    
+    
+    const texto = "Me encanta aprender JavaScript y practicar cada día javascript. \n JavaScript es un lenguaje de programación muy versátil javascript.";
+    const patron = /javascript/gi; // La 'i' hace que no importe si es J o j.
+    
+    // Método .test() -> devuelve true o false
+    console.log(patron.test(texto)); // true
+    console.log(patron.exec(texto)); // ["JavaScript", index: 22, input: "Me encanta
+    // Método .match() -> extrae la coincidencia
+    console.log(texto.match(patron)); // ["JavaScript"]
+    
+    console.log("-- DEPENDIENDO DE LAS BANDERAS QUE PUEDEN SER /g  /i   /m  ,etc \n");
+
+    console.log("---- AHORA PARA REEMPAZAR CON .replace() ----- \n");
+
+
+    const textoReemplazar = "Me gusta el café, el café es mi bebida favorita.";
+
+    const regexReemplazar = /café/g;
+
+    const nuevoTexto = textoReemplazar.replace(regexReemplazar, "cacao");
+
+    console.log(nuevoTexto); // "Me gusta el té, el té es mi bebida favorita."
