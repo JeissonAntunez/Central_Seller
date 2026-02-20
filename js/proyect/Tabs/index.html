@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
         <div class="navbar">
             <ul class="lista-navbar">
                 <li><a href="#tab1">First Tab</a></li>
-                <li><a href="#tab2">Second Tab</a></li>
+                <li><a href="#tab2"  onclick="mostrarContenido()">Second Tab</a></li>
                 <li><a href="#tab3">Third Tab</a></li>
                 <li><a href="#tab4">Fourth Tab </a></li>
 
@@ -22,12 +22,56 @@
         <div class="container-texto">
             <p class="letra-p">Clicking each tab should hide the content of the other tab and show the content of clicked tab. By default, enable the first tab.</p>
         </div>
-        .<div id="tab1" class="tab-content">
+        .<div id="tab1" class="tab-content active"  >
             <span>First Tab content to be displayed here</span>
            
     </main>
     <footer>
         <h3>Add some dummy content or just add a simple text showwing the tab</h3>
     </footer>
+    <script src="app.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="lista-navbar">
+                <li><a href="#tab1" class="tab-link">First Tab</a></li>
+                <li><a href="#tab2" class="tab-link">Second Tab</a></li>
+                <li><a href="#tab3" class="tab-link">Third Tab</a></li>
+                <li><a href="#tab4" class="tab-link">Fourth Tab</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container-texto">
+            <p class="letra-p">Clicking each tab should hide the content of the other tab and show the content of clicked tab.</p>
+        </div>
+        <div id="tab1" class="tab-content active">
+            <span>First Tab content</span>
+        </div>
+        <div id="tab2" class="tab-content">
+            <span>Second Tab content</span>
+        </div>
+        <div id="tab3" class="tab-content">
+            <span>Third Tab content</span>
+        </div>
+        <div id="tab4" class="tab-content">
+            <span>Fourth Tab content</span>
+        </div>
+    </main>
+    <footer>
+        <h3>Footer content here</h3>
+    </footer>
+    <script src="app.js"></script>
 </body>
 </html>

@@ -172,4 +172,12 @@ footer{
 
 
 
+.tab-content {
+    display: none;
+    padding: 20px;
+    min-height: 200px;
+}
 
+.tab-content.active {
+    display: block;
+}
