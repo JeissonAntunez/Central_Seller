@@ -1,0 +1,135 @@
+ 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    /* Contenido de la página */
+    .page-content {
+      text-align: center;
+      color: #333;
+    }
+
+    /* Banner de cookies */
+    #cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #1e293b;
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    #cookie-banner.oculto {
+      display: none;
+    }
+
+    .cookie-texto {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .cookie-texto h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cookie-texto p {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+
+    .cookie-botones {
+      display: flex;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .btn-aceptar {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .btn-aceptar:hover { background: #2563eb; }
+
+    .btn-rechazar {
+      background: transparent;
+      color: #94a3b8;
+      border: 1px solid #475569;
+      padding: 10px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .btn-rechazar:hover {
+      background: #334155;
+      color: white;
+    }
+
+    /* Notificación de estado */
+    #notificacion {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 14px 20px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: white;
+      display: none;
+      z-index: 2000;
+      animation: slideIn 0.4s ease;
+    }
+
+    #notificacion.aceptado { background: #22c55e; }
+    #notificacion.rechazado { background: #ef4444; }
+
+    @keyframes slideIn {
+      from { transform: translateX(100px); opacity: 0; }
+      to   { transform: translateX(0);    opacity: 1; }
+    }
+
+    /* Botón para mostrar banner de nuevo */
+    #btn-resetear {
+      margin-top: 20px;
+      background: #6366f1;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      display: none;
+    }
+
+    #btn-resetear:hover { background: #4f46e5; }

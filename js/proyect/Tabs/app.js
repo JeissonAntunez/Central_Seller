@@ -1,60 +1,31 @@
+ 
+ 
+ 
+        const tabLinks = document.querySelectorAll('.tab-link');
+        const tabContents = document.querySelectorAll('.tab-content');
 
-// const tarjetaTabs = document.querySelectorAll('.tab-card');
+        // Colores opcionales por tab (puedes quitarlos si prefieres todo negro)
+        const colores = {
+            '#tab1': '#111111',
+            '#tab2': '#1a3a2a',
+            '#tab3': '#1a1a3a',
+            '#tab4': '#3a1a1a'
+        };
 
+        tabLinks.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
 
-// function mostrarContenido() {
-//     tarjetaTabs.addEventListener('click', function() {
-//         tarjetaTabs.style.background = 'red';
-// });};
+                const destino = this.getAttribute('href');
 
+                // Quitar active de todos los links y contenidos
+                tabLinks.forEach(l => l.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
 
-// mostrarContenido();
-
-
-// export {mostrarContenido};
-
-
-
-const tabs = document.querySelectorAll('.tab-link');
-const contenidos = document.querySelectorAll('.tab-content');
-
-function mostrarContenido(tabId) {
-    // Ocultar todos los contenidos
-    contenidos.forEach(function(contenido) {
-        contenido.classList.remove('active');
-    });
-
-    // Mostrar solo el contenido del tab clickeado
-    const tabActivo = document.querySelector(tabId);
-    if (tabActivo) {
-        tabActivo.classList.add('active');
-    }
-}
-
-// Agregar evento a cada tab
-tabs.forEach(function(tab) {
-    tab.addEventListener('click', function(e) {
-        e.preventDefault();
-        const destino = this.getAttribute('href');
-        mostrarContenido(destino);
-    });
-});
-
-const colores = {
-    '#tab1': '#FF6B6B',
-    '#tab2': '#6BCB77',
-    '#tab3': '#4D96FF',
-    '#tab4': '#FFD93D'
-};
-
-tabs.forEach(function(tab) {
-    tab.addEventListener('click', function(e) {
-        e.preventDefault();
-        const destino = this.getAttribute('href');
-        mostrarContenido(destino);
-
-        // Cambia el color del tab-content activo
-        const tabActivo = document.querySelector(destino);
-        tabActivo.style.backgroundColor = colores[destino];
-    });
-});
+                // Activar el clickeado
+                this.classList.add('active');
+                const tabActivo = document.querySelector(destino);
+                tabActivo.classList.add('active');
+                tabActivo.style.backgroundColor = colores[destino];
+            });
+        });
