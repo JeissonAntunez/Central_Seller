@@ -4,12 +4,18 @@ import RegisterPage1 from './pages/auth/RegisterPage1';
 import Admin from './pages/admin/Dashboard';
 import Dashboard from './pages/admin/Dashboard';
 import {FlashCards} from './components/FlashCards';
+// Quiz 
+import { Quiz } from './components/quiz';  // ← un solo import limpio
+
 function App() {
   return (
     <Routes>
       {/* Ruta raíz redirige al login */}
       <Route path="/" element={<Navigate to="/login" replace />} />
-      <Route path='/path' element={<FlashCards/>}/>
+      <Route path="/" element={<Navigate to="/login" replace />} />
+      <Route path="/flash" element={<FlashCards />} />
+      <Route path="/quiz" element={<Quiz />} />   {/* ← ruta limpia */}
+
       {/* Rutas de autenticación (SIN navbar) */}
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage1 />} />
