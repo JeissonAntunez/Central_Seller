@@ -3,13 +3,13 @@ import LoginPage from './pages/auth/LoginPage';
 import RegisterPage1 from './pages/auth/RegisterPage1';
 import Admin from './pages/admin/Dashboard';
 import Dashboard from './pages/admin/Dashboard';
-
+import {FlashCards} from './components/FlashCards';
 function App() {
   return (
     <Routes>
       {/* Ruta raíz redirige al login */}
       <Route path="/" element={<Navigate to="/login" replace />} />
-      
+      <Route path='/path' element={<FlashCards/>}/>
       {/* Rutas de autenticación (SIN navbar) */}
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage1 />} />

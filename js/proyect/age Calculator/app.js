@@ -57,7 +57,7 @@ boton.addEventListener("click", () => {
 
   // Parse the date without timezone issues
   const [anio, mes, dia] = valorTotal.split('-').map(Number);
-
+  console.log(valorTotal.split('-').map(Number));
   const hoy = new Date();
   const anioActual = hoy.getFullYear();
   const mesActual = hoy.getMonth() + 1; // 1-12
